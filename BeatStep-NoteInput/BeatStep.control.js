@@ -108,12 +108,11 @@ function init ()
         }
     });
 
-    // Create Note Inputs.
-    var note_in = midi_in.createNoteInput("Sequencer",
-                                          "80????",  // Note off
-                                          "90????",  // Note on
-                                          "A0????"   // Aftertouch
-                                          );
-    // Send directly to the DAW and bypass the midi callback.
-    note_in.setShouldConsumeEvents(true);
+    for (var i = 0, input_name, mask, note_input; i < MIDI_CHANNELS; i++) {
+        input_name = 'Channel ' + (i + 1);
+        mask = '?x????'.replace('x', i.toString(16));
+        note_input = midi_in.createNoteInput(input_name, mask);
+        note_input.setShouldConsumeEvents(false);
+    }
+
 }
