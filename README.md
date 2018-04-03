@@ -1,5 +1,8 @@
 # Arturia Beatstep Control script for Bitwig
 
+**This is a modification to allow multiple channels. Hopefully, improvements to
+Bitwig make this modification no longer necessary**
+
 In this package are two different control scripts, named BeatStep-MidiMapping
 and BeatStep-NoteInput. Both scripts use an overlay in bitwig to show the
 values of the mapped knobs. You can turn this of in the corresponding
