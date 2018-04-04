@@ -57,8 +57,9 @@ function init ()
     // Tempoary variables.
     var cc = 0;
     var ch = 0;
-    var midi_in  = host.getMidiInPort(0);
-    var midi_out = host.getMidiOutPort(0);
+    var midi_in   = host.getMidiInPort(0);
+    var midi_out  = host.getMidiOutPort(0);
+    var transport = host.createTransport();
 
     // Setup midi controls
     user_controls = host.createUserControls(NUM_CONTROLS);
@@ -105,6 +106,16 @@ function init ()
                 }
                 user_controls.getControl(index).set(value, 128);
             }
+        }
+    });
+
+    midi_in.setSysexCallback(function (value)
+    {
+        if (value == "f07f7f0602f7") {
+            transport.togglePlay();
+        }
+        else if (value == "f07f7f0601f7") {
+            transport.stop();
         }
     });
 

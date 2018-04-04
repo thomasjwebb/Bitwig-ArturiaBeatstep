@@ -1,7 +1,7 @@
 # Arturia Beatstep Control script for Bitwig
 
-**This is a modification to allow multiple channels. Hopefully, improvements to
-Bitwig make this modification no longer necessary**
+**This is modified from the original to support multiple midi channels and
+play/stop**
 
 In this package are two different control scripts, named BeatStep-MidiMapping
 and BeatStep-NoteInput. Both scripts use an overlay in bitwig to show the
